@@ -46,12 +46,21 @@
 					"referenceName": "DatalakeLinkedService",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"filename": {
+						"type": "String",
+						"defaultValue": "Log.csv"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "Log.csv",
+						"fileName": {
+							"value": "@dataset().filename",
+							"type": "Expression"
+						},
 						"fileSystem": "csv"
 					},
 					"columnDelimiter": ",",
@@ -360,7 +369,9 @@
 							{
 								"referenceName": "CSVSource",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"filename": "Log.csv"
+								}
 							}
 						],
 						"outputs": [
