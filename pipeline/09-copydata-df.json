@@ -176,7 +176,10 @@
 				"inputs": [
 					{
 						"referenceName": "CSVSource",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "Log.csv"
+						}
 					}
 				],
 				"outputs": [
